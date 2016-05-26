@@ -1,5 +1,5 @@
 package spring.jsf.tpjsf.dao;
-/*****/
+/******/
 import java.util.List;
 
 import spring.jsf.tpjsf.entities.Session;

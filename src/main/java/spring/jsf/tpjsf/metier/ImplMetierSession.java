@@ -1,5 +1,5 @@
 package spring.jsf.tpjsf.metier;
-/****/
+/******/
 import java.util.List;
 
 
