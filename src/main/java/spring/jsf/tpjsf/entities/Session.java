@@ -11,6 +11,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -19,9 +21,7 @@ import javax.persistence.TemporalType;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-import com.ProjetALA.Chambre.Chambre;
-import com.ProjetALA.Employer.Employer;
-import com.ProjetALA.Reservation.Reservation;
+
 
 /*Auteur:Rengassamy Alex
  * nom Projet :ProjetEtudiant
@@ -50,15 +50,17 @@ public class Session {
 	/****************Association***************/
 	
 	/* association avec module */
-	@ManyToMany(mappedBy="listeSession",fetch=FetchType.EAGER)
+	@ManyToMany
+	@JoinTable
 	private List<Module> listeModule = new ArrayList<Module>();
 	
 	/* association avec Salle */
 	@ManyToOne
+	@JoinColumn(name="idSession")
 	private Salle salle;
 	
 	/*association avec etudiant*/
-	@OneToMany(mappedBy = "Session")
+	@OneToMany(mappedBy = "session")
 	private List<Etudiant> tabEtudiant = new ArrayList<Etudiant>();
 	
 	/******** getterEtsetter ****************/

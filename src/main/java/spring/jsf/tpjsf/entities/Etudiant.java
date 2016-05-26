@@ -17,9 +17,11 @@ import javax.persistence.Entity;
  * 
  * */
 
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
@@ -49,14 +51,16 @@ public class Etudiant implements Serializable {
 	
 	/* association avec Salle */
 	@ManyToOne
+	@JoinColumn(name="idSession")
 	private Session session;
 	
 	/*association avec etudiant*/
-	@OneToMany(mappedBy = "Etudiant")
+	@OneToMany(mappedBy="etudiant",fetch=FetchType.LAZY)	
 	private List<Examen> tabExamen = new ArrayList<Examen>();
 	
 	/*association avec etudiant*/
-	@OneToMany(mappedBy = "Etudiant")
+	@OneToMany
+	@JoinColumn(name="idMateriel")
 	private List<Materiel> tabMateriel = new ArrayList<Materiel>();
 	
 	
