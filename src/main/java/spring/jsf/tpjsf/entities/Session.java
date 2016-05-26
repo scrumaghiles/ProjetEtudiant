@@ -7,7 +7,7 @@ import java.util.List;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -56,13 +56,31 @@ public class Session {
 	
 	/* association avec Salle */
 	@ManyToOne
-	@JoinColumn(name="idSession")
+	@JoinColumn(name="idSalle")
 	private Salle salle;
 	
 	/*association avec etudiant*/
 	@OneToMany(mappedBy = "session")
 	private List<Etudiant> tabEtudiant = new ArrayList<Etudiant>();
 	
+	public List<Module> getListeModule() {
+		return listeModule;
+	}
+	public void setListeModule(List<Module> listeModule) {
+		this.listeModule = listeModule;
+	}
+	public Salle getSalle() {
+		return salle;
+	}
+	public void setSalle(Salle salle) {
+		this.salle = salle;
+	}
+	public List<Etudiant> getTabEtudiant() {
+		return tabEtudiant;
+	}
+	public void setTabEtudiant(List<Etudiant> tabEtudiant) {
+		this.tabEtudiant = tabEtudiant;
+	}
 	/******** getterEtsetter ****************/
 	public Long getIdSession() {
 		return idSession;
