@@ -9,10 +9,37 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
 		
-	    	<!--  <beans:bean id="dao" class="crepe.spring.jsf.DAO.ImdaoCREP"></beans:bean>
-    <beans:bean id="metierC" class="crepe.spring.jsf.Metier.ImpleMetierCrepe">
-        <beans:property  name="dao" ref="dao"></beans:property>
-    </beans:bean>      -->                    
+	<beans:bean id="daoExamen" class="spring.jsf.tpjsf.dao.ImplDaoExamen"></beans:bean>
+    <beans:bean id="metierExamen" class="spring.jsf.tpjsf.metier.ImplMetierExamen">
+        <beans:property  name="dao" ref="daoExamen"></beans:property>
+    </beans:bean>
+     
+    <beans:bean id="daoMateriel" class="spring.jsf.tpjsf.dao.ImplDaoMateriel"></beans:bean>
+    <beans:bean id="metierMateriel" class="spring.jsf.tpjsf.metier.ImplMetierMateriel">
+        <beans:property  name="dao" ref="daoMateriel"></beans:property>
+    </beans:bean>                    
+    	 
+    <beans:bean id="daom" class="spring.jsf.tpjsf.dao.ImplDAOmodule"></beans:bean>
+    <beans:bean id="metierM" class="spring.jsf.tpjsf.metier.ImpMetierModule">
+        <beans:property  name="daoModule" ref="daom"></beans:property>
+    </beans:bean>  
+    
+    <beans:bean id="daoS" class="spring.jsf.tpjsf.dao.ImplDaoSalle"></beans:bean>
+    <beans:bean id="metierS" class="spring.jsf.tpjsf.metier.ImpMetierSalle">
+        <beans:property  name="daoSalle" ref="daoS"></beans:property>
+    </beans:bean> 	
+    
+    <beans:bean id="daoetudiant" class="spring.jsf.tpjsf.dao.ImpldaoEtudiant"></beans:bean>
+    <beans:bean id="EtudiantMetier" class="spring.jsf.tpjsf.metier.implMetierEtudiant">
+        <beans:property  name="daoetudiant" ref="daoetudiant"></beans:property>
+    </beans:bean>
+     
+    <beans:bean id="daosession" class="spring.jsf.tpjsf.dao.ImpldaoSession"></beans:bean>
+    <beans:bean id="SessionMetier" class="spring.jsf.tpjsf.metier.ImplMetierSession">
+        <beans:property  name="daosession" ref="daosession"></beans:property>
+    </beans:bean>                     
+    
+     
     	 
     <!-- ************************************************************************************************ -->
     <annotation-driven />
@@ -24,7 +51,7 @@
 	<beans:bean id="datasource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<beans:property name="driverClassName" value="com.mysql.jdbc.Driver"></beans:property>
-		<beans:property name="url" value="jdbc:mysql://localhost/gestionEtudiant"></beans:property>
+		<beans:property name="url" value="jdbc:mysql://localhost/gestionEcole"></beans:property>
 		<beans:property name="username" value="root"></beans:property>
 		<beans:property name="password" value=""></beans:property>
 	</beans:bean>
