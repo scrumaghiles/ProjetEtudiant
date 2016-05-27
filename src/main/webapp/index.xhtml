@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Etudiant</title>
+</h:head>
+
+
+
+
+
+
+
+
+		<p:dataTable var="etu" value="#{EtudiantBean.getListofEtudiant()}">
+		    <p:column headerText="Id">
+		        <h:outputText value="#{etu.idEtudiant}" />
+		    </p:column>
+		 
+		    <p:column headerText="Nom">
+		        <h:outputText value="#{etu.nomEtudiant}" />
+		    </p:column>
+		 
+		    <p:column headerText="Prénom">
+		        <h:outputText value="#{etu.prenomEtudiant}" />
+		    </p:column>
+		 
+		    <p:column headerText="Date de naissance">
+		        <h:outputText value="#{etu.dateDeNaissance}" />
+		    </p:column>
+		    
+		    <p:column headerText="Téléphone">
+		        <h:outputText value="#{etu.telEtudiant}" />
+		    </p:column>
+		    
+		    <p:column headerText="Mail">
+		        <h:outputText value="#{etu.mailEtudiant}" />
+		    </p:column>
+		    
+		    <p:column headerText="Adresse">
+		        <h:outputText value="#{etu.adresseEtudiant}" />
+		    </p:column>
+		    
+		    <p:column headerText="Spécialité">
+		        <h:outputText value="#{etu.specialiteEtudiant}" />
+		    </p:column>
+		    
+		</p:dataTable>
+<h:body>
+	
+
+</h:body>
+</html>
