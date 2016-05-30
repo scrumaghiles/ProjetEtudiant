@@ -8,7 +8,50 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 	<title>Etudiant</title>
 </h:head>
-
+					<table>
+						<tr>
+							<td style="width:300px;padding-bottom:10px;"><h:outputText value="Nom :" /></td>
+							<td style="width:300px;padding-bottom:10px;"><p:inputText id="nomEtudiant" value="#{etu.nomEtudiant}" /></td>
+						</tr>
+						<tr>
+							<td style="width:300px;padding-bottom:10px;"><h:outputText value="Prenom :" /></td>
+							<td style="width:300px;padding-bottom:10px;"><p:inputText id="prenomEtudiant" value="#{etu.prenomEtudiant}" /></td>
+						</tr>
+						<tr>
+							<td style="width:300px;padding-bottom:10px;"><h:outputText value="Date de naissance :" /></td>
+							<td style="width:300px;padding-bottom:10px;"><p:inputText id="dateDeNaissance" value="#{etu.dateDeNaissance}" /></td>
+						</tr>
+						<tr>
+							<td style="width:300px;padding-bottom:10px;"><h:outputText value="Telephone :" /></td>
+							<td style="width:300px;padding-bottom:10px;"><p:inputText id="telEtudiant" value="#{etu.telEtudiant}" /></td>
+						</tr>
+						<tr>
+							<td style="width:300px;padding-bottom:10px;"><h:outputText value="Email :" /></td>
+							<td style="width:300px;padding-bottom:10px;"><p:inputText id="mailEtudiant" value="#{etu.mailEtudiant}" /></td>
+						</tr>
+						<tr>
+							<td style="width:300px;padding-bottom:10px;"><h:outputText value="Adresse :" /></td>
+							<td style="width:300px;padding-bottom:10px;"><p:inputText id="adresseEtudiant" value="#{etu.adresseEtudiant}" /></td>
+						</tr>
+						<tr>
+							<td style="width:300px;padding-bottom:10px;"><h:outputText value="Specialite :" /></td>
+							<td style="width:300px;padding-bottom:10px;"><p:inputText id="specialiteEtudiant" value="#{etu.specialiteEtudiant}" /></td>
+						</tr>
+						
+						<tr>
+							<td style="width:300px;padding-top:15px;">
+								<div align="center">
+									<p:commandButton value="Ajouter" actionListener="#{EtudiantBean.AddEtudiant(e)}" ajax="true" />
+									<p:commandButton value="Ajouter" actionListener="#{EtudiantBean.AddEtudiant(e)}" ajax="true" />
+								</div>
+							</td>
+							<td style="width:300px;padding-top:15px;">
+								<div align="center">
+									<p:commandButton type="reset" value="Rétablir" />
+								</div>
+							</td>
+						</tr>
+					</table>
 
 
 
