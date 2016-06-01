@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+	
+	
+	<title>Etudiant</title>
+	
+</h:head>
+	<h:body>	
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+					aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="home">Gestion Etudiant</a>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse"
+				id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li><a href="GestionEtudiant">Etudiant</a></li>
+					<li><a href="GestionMateriel">Materiel</a></li>
+					<li><a href="GestionModule">Module</a></li>
+					<li class="dropdown"><a href="GestionClient"
+						class="dropdown-togg1le" data-toggle="dropdown" role="button"
+						aria-haspopup="true" aria-expanded="false">Session <span class="caret"></span></a></li></ul>	
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#">Link</a></li>
+					
+				</ul>
+			</div>
+			<!-- /.navbar-collapse -->
+		</div>
+		<!-- /.container-fluid -->
+	</nav>
+	
+	<h3>Ajouter un étudiant</h3>
+	<h:form>
+		<h:outputText value="Nom:" /><p:inputText value="#{EtudiantBean.e.nomEtudiant}" required="true" requiredMessage="Veuillez entrer le nom de l'étudiant"></p:inputText><br/>
+		<h:outputText value="Prénom:" /><p:inputText value="#{EtudiantBean.e.prenomEtudiant}" required="true" requiredMessage="Veuillez entrer le prénom de l'étudiant"></p:inputText><br/>
+		<h:outputText value="Date de naissance:" /><p:calendar  value="#{EtudiantBean.e.dateDeNaissance}" required="true" requiredMessage="Veuillez entrer votre numeros de téléphone"></p:calendar><br/>
+		<h:outputText value="Téléphone:" /><p:inputText value="#{EtudiantBean.e.telEtudiant}" required="true" requiredMessage="Veuillez entrer l'email de l'étudiant"></p:inputText><br/>
+		<h:outputText value="Email:" /><p:inputText  value="#{EtudiantBean.e.mailEtudiant}" required="true" requiredMessage="Veuillez entrer l'adresse de l'étudiant"></p:inputText><br/>
+		<h:outputText value="Adresse:" /><p:inputText value="#{EtudiantBean.e.adresseEtudiant}" required="true" requiredMessage="Veuillez entrer la speécialité de l'étudiant"></p:inputText><br/>
+		<h:outputText value="Spécialité:" /><p:inputText  value="#{EtudiantBean.e.specialiteEtudiant}" required="true" requiredMessage="Veuillez entrer le nom du matériel"></p:inputText><br/>
+		<p:commandButton value="Ajouter" actionListener="#{EtudiantBean.AddEtudiant()}" update="tabEtudiant"></p:commandButton>
+	</h:form><br/>
+	
+	
+				
+	  <h3>Liste des étudiants</h3> 
+	  <p:dataTable id="tabEtudiant" var="etu" value="#{EtudiantBean.getListofEtudiant()}">
+		    <p:column headerText="Id">
+		        <h:outputText value="#{etu.idEtudiant}" />
+		    </p:column>
+		 
+		    <p:column headerText="Nom">
+		        <h:outputText value="#{etu.nomEtudiant}" />
+		    </p:column>
+		 
+		    <p:column headerText="Prénom">
+		        <h:outputText value="#{etu.prenomEtudiant}" />
+		    </p:column>
+		 
+		    <p:column headerText="Date de naissance">
+		        <h:outputText value="#{etu.dateDeNaissance}" />
+		    </p:column>
+		    
+		    <p:column headerText="Téléphone">
+		        <h:outputText value="#{etu.telEtudiant}" />
+		    </p:column>
+		    
+		    <p:column headerText="Mail">
+		        <h:outputText value="#{etu.mailEtudiant}" />
+		    </p:column>
+		    
+		    <p:column headerText="Adresse">
+		        <h:outputText value="#{etu.adresseEtudiant}" />
+		    </p:column>
+		    
+		    <p:column headerText="Spécialité">
+		        <h:outputText value="#{etu.specialiteEtudiant}" />
+		    </p:column>
+		    
+		    <p:column headerText="Opération">
+				<h:form><p:commandButton value="Supprimer" actionListener="#{EtudiantBean.deleteEtudiant(etu.idEtudiant)}" update="tabEtudiant"></p:commandButton></h:form>
+		    </p:column>
+		    
+		</p:dataTable>
+	  
+
+	  
+	  
+	  
+	  
+	  
+	  
+	               
+
+
+
+
+
+
+
+		
+	
+
+</h:body>
+</html>
